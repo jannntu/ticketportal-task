@@ -1,0 +1,89 @@
+body {
+    font-family: "Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    background-color: #e4e4e4;
+    font-weight: 300;
+}
+
+.content{
+	padding-bottom: 100px;
+}
+
+.top-bottom {
+	background-color: white;
+	color:white;
+	height: 80px;
+}
+
+.my-custom-table thead tr {
+	background-color: #e4e4e4;
+	border-bottom: 20px solid #e4e4e4;
+	padding: 10px;
+}
+
+.my-custom-table-thead-td {
+	border: none;
+	padding: 10px;
+}
+
+.my-custom-table tr { 
+	border: none;
+	background-color: white;
+	border-bottom: 20px solid #e4e4e4;
+}
+
+.my-custom-table td {
+	border: none;
+	padding: 10px;
+}
+
+@media only screen and (max-width: 800px) {
+
+	.my-custom-table table,
+	.my-custom-table thead,
+	.my-custom-table tbody,
+	.my-custom-table th,
+	.my-custom-table td,
+	.my-custom-table tr {
+		display: block;
+	}
+	 
+	/* Hide table headers (but not display: none;, for accessibility) */
+	.my-custom-table thead tr {
+		position: absolute;
+		top: -9999px;
+		left: -9999px;
+	}
+	 
+	.my-custom-table tr { 
+		border: none;
+		background-color: white;
+		margin-bottom: 20px;
+		padding: 10px;
+	}
+	  
+	.my-custom-table td {
+		/* Behave like a "row" */
+		border: none;
+		position: relative;
+		padding-left: 50%;
+		white-space: normal;
+		text-align:left;
+	}
+	 
+	.my-custom-table td:before {
+		/* Now like a table header */
+		position: absolute;
+		/* Top/left values mimic padding */
+		top: 6px;
+		left: 6px;
+		width: 45%;
+		padding-right: 10px;
+		white-space: nowrap;
+		text-align:left;
+		font-weight: bold;
+	}
+	 
+	.my-custom-table td:before { 
+		content: attr(data-title); 
+	}
+}

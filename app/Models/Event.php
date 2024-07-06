@@ -17,6 +17,7 @@ class Event extends Model
         'zaciatok',
         'pocet_radov',
         'pocet_sedadiel',
-        'cena'
+        'cena',
+        'obsadene'
     ];
 }

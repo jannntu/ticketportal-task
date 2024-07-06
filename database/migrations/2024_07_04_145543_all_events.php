@@ -20,6 +20,7 @@ return new class extends Migration
             $table->integer('pocet_radov')->nullable()->default('5');
             $table->integer('pocet_sedadiel')->nullable()->default('10');
             $table->string('cena');
+            $table->text('obsadene')->nullable();
         });
     }
 

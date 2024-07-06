@@ -41,13 +41,13 @@
                 </div>
                 <div class="pb-3">
                     <label for="cena" class="form-label fw-bold">Cena</label>
-                    <input name="cena" type="text" id="cena" required class="form-control">
+                    <input name="cena" type="number" id="cena" required class="form-control">
                     @error('cena')
                         <div class="alert alert-danger">{{ $message }}</div>
                     @enderror
                 </div>
 
-                <x-form-buttons create=1></x-form-buttons>
+                <x-form-buttons></x-form-buttons>
             </form>
         </div>
     </div>

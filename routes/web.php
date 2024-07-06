@@ -11,3 +11,4 @@ Route::patch('/event/update/{event:id}', [EventsController::class, 'update']);
 Route::get('/event/show/{event:id}', [EventsController::class, 'show']);
 Route::get('/event/create/', [EventsController::class, 'create']);
 Route::post('/event/create/', [EventsController::class, 'store']);
+Route::patch('/event/update/seats/{event:id}', [EventsController::class, 'updateSeats']);

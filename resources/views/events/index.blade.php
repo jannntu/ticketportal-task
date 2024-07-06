@@ -5,6 +5,13 @@
                 <x-search></x-search>
             </div>
         </div>
+        <div class="row">
+            <div class="col-10 col-md-6 offset-1 offset-md-3 mb-3 mb-md-1 d-flex justify-content-center">
+                <a href="/event/create/" class="btn btn-info text-decoration-none">
+                    Vytvoriť nové podujatie
+                </a>
+            </div>
+        </div>
         <div class="row mb-5">
             <div class="my-custom-table">
                 <table class="col-10 offset-1 table-bordered table-striped table-condensed cf">
@@ -36,9 +43,14 @@
     </div>
 
     <script>
+        let nextPageUrl;
+        $(document).ready(function () {
+            nextPageUrl = '{{ $data->nextPageUrl() }}';
+        });
+
         function loadMoreEvents() {
             $.ajax({
-                url: '{{ $data->nextPageUrl() }}',
+                url: nextPageUrl,
                 type: 'get',
                 beforeSend: function () {
                     nextPageUrl = '';
@@ -51,6 +63,6 @@
                     console.error("Error loading more posts:", error);
                 }
             });
-        }
+            }
     </script>
 </x-layout>

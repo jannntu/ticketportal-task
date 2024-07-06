@@ -60,7 +60,7 @@ class EventsController extends Controller
             'zaciatok' => ['required'],
             'pocet_radov' => ['required','numeric'],
             'pocet_sedadiel' => ['required','numeric'],
-            'cena' => ['required']
+            'cena' => ['required','numeric']
         ]);
     
         $event->update([
@@ -77,7 +77,11 @@ class EventsController extends Controller
     }
 
     public function show(Request $request, Event $event){
-        return view('events.show', ['event' => $event]);
+        $seatsArray = null;
+        if($event->obsadene){
+            $seatsArray = explode(";", $event->obsadene);
+        }
+        return view('events.show', ['event' => $event, 'occupiedSeats' => $seatsArray]);
     }
 
     public function create(){
@@ -91,7 +95,7 @@ class EventsController extends Controller
             'zaciatok' => ['required'],
             'pocet_radov' => ['required','numeric'],
             'pocet_sedadiel' => ['required','numeric'],
-            'cena' => ['required']
+            'cena' => ['required','numeric']
         ]);
     
         $event = Event::create([
@@ -105,6 +109,24 @@ class EventsController extends Controller
         ]);
 
         return redirect('/event/show/'.$event->id);
+    }
+
+    public function updateSeats(Request $request, Event $event){
+        $seats = "";
+        if(request('seats')){
+            foreach(request('seats') as $key => $seat){
+                if ($key === array_key_first(request('seats'))) {
+                    $seats = $seat;
+                }
+                $seats = $seats.';'.$seat;
+            }
+        }
+
+        $event->update([
+            'obsadene' => $seats
+        ]);
+
+        return redirect('/event/show/'.$event->id)->with('message', 'Vaše lístky boli úspešne zakúpené.');;
     }
 
     private function readXml(){

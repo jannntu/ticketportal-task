@@ -42,7 +42,7 @@
                 </div>
                 <div class="pb-3">
                     <label for="cena" class="form-label fw-bold">Cena</label>
-                    <input name="cena" type="text" id="cena" value="{{ $event->cena }}" required class="form-control">
+                    <input name="cena" type="number" id="cena" value="{{ $event->cena }}" required class="form-control">
                     @error('cena')
                         <div class="alert alert-danger">{{ $message }}</div>
                     @enderror

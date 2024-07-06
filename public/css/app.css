@@ -4,6 +4,10 @@ body {
     font-weight: 300;
 }
 
+.row{
+	margin: 0px !important;
+}
+
 .content{
 	padding-bottom: 100px;
 }
@@ -34,6 +38,34 @@ body {
 .my-custom-table td {
 	border: none;
 	padding: 10px;
+}
+
+.free-seat{
+	min-width: 25px;
+	height: 25px;
+	margin: 5px;
+	border-radius: 5px;
+	text-align: center;
+	background-color: burlywood;
+}
+
+.selected-seat{
+	width: 25px;
+	height: 25px;
+	margin: 5px;
+	border-radius: 5px;
+	text-align: center;
+	background-color: blueviolet;
+}
+
+.occupied-seat{
+	width: 25px;
+	height: 25px;
+	margin: 5px;
+	border-radius: 5px;
+	text-align: center;
+	background-color: darkcyan;
+	cursor: not-allowed;
 }
 
 @media only screen and (max-width: 800px) {
@@ -86,4 +118,25 @@ body {
 	.my-custom-table td:before { 
 		content: attr(data-title); 
 	}
+}
+
+.usrtooltip {
+    position: relative;
+    display: inline-block;
+}
+
+.usrtooltip .usrtooltiptext {
+	color: white;
+	position: absolute;
+    visibility: hidden;
+    min-width: 120px;
+    background-color: #5b9b7e;
+    border-radius: 6px;
+    padding: 5px;
+    z-index: 1;
+    margin-left: 8px;
+}
+
+.usrtooltip:hover .usrtooltiptext {
+    visibility: visible;
 }

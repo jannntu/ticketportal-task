@@ -1,3 +1,7 @@
+/**
+custom css k projektu
+*/
+
 body {
     font-family: "Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     background-color: #e4e4e4;
@@ -81,7 +85,6 @@ body {
 		display: block;
 	}
 	 
-	/* Hide table headers (but not display: none;, for accessibility) */
 	.my-custom-table thead tr {
 		position: absolute;
 		top: -9999px;
@@ -96,7 +99,6 @@ body {
 	}
 	  
 	.my-custom-table td {
-		/* Behave like a "row" */
 		border: none;
 		position: relative;
 		padding-left: 50%;
@@ -105,9 +107,7 @@ body {
 	}
 	 
 	.my-custom-table td:before {
-		/* Now like a table header */
 		position: absolute;
-		/* Top/left values mimic padding */
 		top: 6px;
 		left: 6px;
 		width: 45%;

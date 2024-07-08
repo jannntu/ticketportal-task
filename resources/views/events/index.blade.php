@@ -1,3 +1,7 @@
+<!--
+    view na zobrazenie podujati a vyhladavanie na hlavnej stranke
+-->
+
 <x-layout>
     <div class="content">
         <div class="row">
@@ -43,6 +47,9 @@
     </div>
 
     <script>
+        /**
+         * javascritptova funkcia ktora sa vola po kliknuti na nacitanie dalsich podujati
+         */
         let nextPageUrl;
         $(document).ready(function () {
             nextPageUrl = '{{ $data->nextPageUrl() }}';

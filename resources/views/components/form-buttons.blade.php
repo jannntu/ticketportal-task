@@ -1,3 +1,7 @@
+<!--
+komponent obsahuje tlacidla na odoslanie formulara alebo vratenie sa spat
+-->
+
 <div class="row pt-4">
     <div class="col-12 d-flex justify-content-center gap-3">
         <button type="submit" class="btn btn-info">

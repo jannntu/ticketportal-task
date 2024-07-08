@@ -1,3 +1,7 @@
+<!--
+    komponent zobrazuje jeden riadok informacii o podujati v detaile podujatia
+-->
+
 @props(['value'])
 
 <p>

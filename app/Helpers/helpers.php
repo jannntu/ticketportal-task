@@ -1,5 +1,7 @@
 <?php
-
+/**
+ * funkcie formatuju datum pre jeho spravne zobrazenie na obrazovke
+ */
 if (! function_exists('dateToPage')) {
     function dateToPage($d){
         if($d){

@@ -1,3 +1,7 @@
+<!--
+view do ktoreho sa poslu vyhladane podujatia a tie sa potom zobrazia na hlavnej stranke
+-->
+
 <tbody id="main-page-events-data">
     @if($data->count() > 0)
         @foreach($data as $oneEvent)

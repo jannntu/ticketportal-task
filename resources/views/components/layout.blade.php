@@ -1,3 +1,8 @@
+<!--
+Hlavny view do sekcie head sa includnu vsetky importy, ktore su v includes/head
+do main sa includuju vsetky views
+-->
+
 <!DOCTYPE html>
 <html lang="sk_SK" class="container-fluid px-0">
 <head>

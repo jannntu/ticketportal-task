@@ -1,4 +1,6 @@
-@props(['zaciatok'])
+<!--
+komponent na zobrazenie datepickera vo formularoch
+-->
 
 <div class="pb-3">
     <label for="zaciatok" class="form-label fw-bold">{{ $slot }}</label>

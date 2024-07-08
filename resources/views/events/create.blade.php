@@ -1,3 +1,7 @@
+<!--
+view na vytvorenie noveho podujatia
+-->
+
 <x-layout>
     <div class="row pb-5">
         <div class="col-10 col-md-6 offset-1 offset-md-3">

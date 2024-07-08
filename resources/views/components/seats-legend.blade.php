@@ -1,3 +1,7 @@
+<!--
+    komponent sluzi na zobrazenie legendy k sedadlam
+-->
+
 <div class="w-100 d-flex">
     <div class="free-seat"></div> - voľné sedadlo
 </div>

@@ -4,6 +4,9 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
+/**
+ * pri spusteni migracie sa najprv zmaze tabulka ak existuje a potom sa vytvori nova
+ */
 return new class extends Migration
 {
     /**

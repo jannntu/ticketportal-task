@@ -1,3 +1,8 @@
+<!--
+komponent sluzi na zobrazenie inputu na vyhladavanie na hlavnej stranke. Dalej javascript funkciu, ktora ajaxom dotiahne
+data podla vyhladavaneho textu
+-->
+
 <div class="search mb-3">
     <input type="text" onKeyUp="autocompletesearch()" id="autocompletesearch" 
 		class="form-control input-sm" maxlength="64" 

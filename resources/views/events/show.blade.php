@@ -1,3 +1,7 @@
+<!--
+view sluzi na zobrazenie detailu podujatia, mapy hladiska a nakup listkov
+-->
+
 <x-layout>
     <div class="row">
         <div class="col-10 col-md-7 offset-1 offset-md-1">

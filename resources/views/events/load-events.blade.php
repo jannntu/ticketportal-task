@@ -1,3 +1,7 @@
+<!--
+view do ktoreho sa poslu podujatia, ktore sa maju zobrazit na hlavnej stranke a tento view ich zobrazi
+-->
+
 @foreach($data as $oneEvent)
     <tr>
         <td data-title="Názov">

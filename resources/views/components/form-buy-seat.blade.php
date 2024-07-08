@@ -1,3 +1,7 @@
+<!--
+komponent obsahuje formular na nakup listkov, vybrane tlacidla sa poslu do controllera, ktory updatne data v databaze
+-->
+
 @props(['occupiedSeats', 'id'])
 
 <form method="POST" action="/event/update/seats/{{ $id }}">

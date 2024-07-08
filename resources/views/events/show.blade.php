@@ -8,11 +8,11 @@
             @endif
 
             <div class="bg-white mb-4 p-3">
-                <p><span class="fw-bold d-md-inline-block w-25">Názov podujatia:</span> {!! $event->nazov !!}</p>
-                <p><span class="fw-bold d-md-inline-block w-25">Hľadisko:</span> {{ $event->hladisko }}</p>
-                <p><span class="fw-bold d-md-inline-block w-25">Adresa:</span> {{ $event->adresa }}</p>
-                <p><span class="fw-bold d-md-inline-block w-25">Začiatok:</span> {{ $event->zaciatok }}</p>
-                <p><span class="fw-bold d-md-inline-block w-25">Cena:</span> {{ $event->cena }}</p>
+                <x-description-line :value='$event->nazov'>Názov podujatia:</x-description-line>
+                <x-description-line :value='$event->hladisko'>Hľadisko:</x-description-line>
+                <x-description-line :value='$event->adresa'>Adresa:</x-description-line>
+                <x-description-line :value='$event->zaciatok'>Začiatok:</x-description-line>
+                <x-description-line :value='$event->cena'>Cena:</x-description-line>
             </div> 
             <div class="bg-white p-3 mb-4 mb-md-0">
                 <div class="mb-4">
@@ -21,7 +21,7 @@
                     </p>
                     @for($i=1; $i<=$event->pocet_radov; $i++)
                         <div class="row">
-                            <div class="col-3 col-md-1">
+                            <div class="col-3 col-md-1 p-0">
                                 Rad {{ $i }}:
                             </div>
                             <div class="col-9 col-md-11 d-flex flex-wrap">
@@ -51,53 +51,38 @@
                         </div>
                     @endfor
                 </div>
-                <div class="w-100 d-flex">
-                    <div class="free-seat"></div> - voľné sedadlo
-                </div>
-                <div class="w-100 d-flex">
-                    <div class="selected-seat"></div> - Vami vybrané sedadlo
-                </div>
-                <div class="w-100 d-flex">
-                    <div class="occupied-seat"></div> - obsadené sedadlo
-                </div>
+                <x-seats-legend></x-seats-legend>
             </div>
         </div>
         <div class="col-10 col-md-3 offset-1 offset-md-0">
             <div class="bg-white h-100 p-3">
                 <div class="fw-bold w-100">Košík:</div>
-                <div class="d-flex justify-content-between">
+                <div class="d-flex justify-content-between border-bottom">
                     <span>Rad</span>
                     <span>Sedadlo</span>
                     <span>Cena</span>
                 </div>
                 <div id="selected-rows-seats">
                 </div>
+                <div class="row border-top">
+                    <div class="fw-bold col-8 p-0">
+                        Vybraných miest:
+                    </div>
+                    <div class="col-4 p-0" id="seats-count">0
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="fw-bold col-8 p-0">
+                        Cena spolu:
+                    </div>
+                    <div class="col-4 p-0" id="price-total">0
+                    </div>
+                </div>
             </div>   
         </div>    
     </div>
 
-    <form method="POST" action="/event/update/seats/{{ $event->id }}">
-        @csrf
-        @method('PATCH')
-        <div id="selected-to-save" class="pb-3">
-            @if($occupiedSeats)
-                @foreach($occupiedSeats as $os)
-                    <input name="seats[]" type="hidden" value="{{ $os }}">
-                @endforeach
-            @endif
-        </div>
-    
-        <div class="row">
-            <div class="mt-5 mb-5 col-10 offset-1 d-flex justify-content-center gap-3">
-                <button id="buy_seats" type="submit" class="btn btn-info d-none">
-                    Kúpiť
-                </button>
-                <a href="/" class="btn btn-info text-decoration-none">
-                    Späť
-                </a>
-            </div>
-        </div>
-    </form>
+    <x-form-buy-seat :occupiedSeats='$occupiedSeats' :id='$event->id'></x-form-buy-seat>
 
     <script>
         function selectSeat(el, row, seat, price) {
@@ -111,6 +96,21 @@
                 '</span><span>' + price + 
                 '</span></div>')
             .appendTo(selected);
+
+            var count = 1;
+            var total = price;
+
+            if($.isNumeric($('#seats-count').text())){
+                count = parseInt($('#seats-count').text());
+                count = count + 1;
+            }
+            if($.isNumeric($('#price-total').text())){
+                total = parseInt($('#price-total').text());
+                total = total + parseInt(price);
+            }
+
+            $('#seats-count').html(count);
+            $('#price-total').html(total);
 
             var selectedToSave = $('#selected-to-save');
             $('<input name="seats[]" type="hidden" value="'+ row + '-' + seat +'">')

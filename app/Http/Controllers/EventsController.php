@@ -73,7 +73,7 @@ class EventsController extends Controller
             'cena' => request('cena')
         ]);
 
-        return redirect('/event/show/'.$event->id);
+        return redirect('/event/show/'.$event->id)->with('message', 'Podujatie bolo úspešne upravené.');
     }
 
     public function show(Request $request, Event $event){
@@ -126,7 +126,7 @@ class EventsController extends Controller
             'obsadene' => $seats
         ]);
 
-        return redirect('/event/show/'.$event->id)->with('message', 'Vaše lístky boli úspešne zakúpené.');;
+        return redirect('/event/show/'.$event->id)->with('message', 'Vaše lístky boli úspešne zakúpené.');
     }
 
     private function readXml(){
